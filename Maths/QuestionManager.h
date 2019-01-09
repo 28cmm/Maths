@@ -1,8 +1,8 @@
 //
-//  AdditionQuestion.h
+//  QuestionManager.h
 //  Maths
 //
-//  Created by Yilei Huang on 2019-01-07.
+//  Created by Yilei Huang on 2019-01-09.
 //  Copyright © 2019 Joshua Fanng. All rights reserved.
 //
 
@@ -10,10 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface AdditionQuestion : NSObject
-@property NSString * question;
-@property NSInteger answer;
-
+@interface QuestionManager : NSObject
+@property NSMutableArray *question;
+-(NSString*)timeOut;
 @end
 
 NS_ASSUME_NONNULL_END

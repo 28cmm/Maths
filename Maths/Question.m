@@ -6,18 +6,32 @@
 //  Copyright © 2019 Joshua Fanng. All rights reserved.
 //
 
-#import "AdditionQuestion.h"
+#import "Question.h"
 
-@implementation AdditionQuestion
+@implementation Question
+// overriding getter
+- (NSInteger)answer {
+    _endTime = [NSDate date];
+    return _answer;
+}
+
 - (instancetype)init{
     if (self = [super init]) {
-        NSNumber* num1 =@(arc4random_uniform(90)+10);
-        NSNumber* num2 = @(arc4random_uniform(90)+10);
-        _question =[NSString stringWithFormat:@"%@ + %@",num1,num2];
-        _answer = [num1 integerValue] + [num2 intValue];
+        _startTime = [NSDate date];
+        
+        //_question =[NSString stringWithFormat:@"%@ + %@",num1,num2];
+        //_answer = [num1 intValue] + [num2 intValue];
+        
+        _rightValue = @(arc4random_uniform(90)+10);
+        _leftValue =@(arc4random_uniform(90)+10);
+        
     }
     
     return self;
+}
+
+-(NSTimeInterval)answerTime{
+    return [_endTime timeIntervalSinceDate:_startTime];
 }
 
 //-(NSString*)randomQuestion{
